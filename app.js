@@ -4,42 +4,42 @@ const player = {
 const computer = {
     currentChoice: null
 }
-//rock paper scissors  
-const choices = ["Lapis", "Papyrus", "Scalpellus"]
+
+const choices = ["Rock", "Paper", "Scissors"]
 const randomIndex = Math.floor(Math.random() * choices.length);
 
 
 //query selectors
-lapis = document.querySelector('#lapis')
-papyrus = document.querySelector('#papyrus')
-scalpellus = document.querySelector('#scalpellus')
+rock = document.querySelector('#rock')
+paper = document.querySelector('#paper')
+scissors = document.querySelector('#scissors')
   
 computer.currentChoice = choices[randomIndex];
 player.currentChoice = choices[0];
   
 if (player.currentChoice === choices[0] && computer.currentChoice === choices[1]) {
-    console.log("You lose! Papyrus beats Lapis!");
+    console.log("You lose! Paper beats Rock!");
 }
 else if (player.currentChoice === choices[0] && computer.currentChoice === choices[2]) {
-    console.log('You win! Lapis beats Scalpellus!');
+    console.log('You win! Rock beats Scissors!');
 }      
 else if (player.currentChoice === choices[0] && computer.currentChoice === choices[0]) {
     console.log("It's a draw!");
 } 
 else if (player.currentChoice === choices[1] && computer.currentChoice === choices[2]) {
-    console.log("You lose! Scalpellus beats Papyrus!");
+    console.log("You lose! Scissors beats Paper!");
 }  
 else if (player.currentChoice === choices[1] && computer.currentChoice === choices[0]){
-    console.log('You win! Papyrus beats Lapis!');
+    console.log('You win! Paper beats Rock!');
 }
 else if (player.currentChoice === choices[1] && computer.currentChoice === choices[1]) {
     console.log("It's a draw!");
 }
 else if (player.currentChoice === choices[2] && computer.currentChoice === choices[0]) {
-    console.log("You lose! Lapis beats Scalpellus!");
+    console.log("You lose! Rock beats Scissors!");
 }
 else if (player.currentChoice === choices[2] && computer.currentChoice === choices[1]) {
-    console.log("You win! Scalpellus beats Papyrus!");
+    console.log("You win! Scissors beats Paper!");
 }
 else if (player.currentChoice === choices[2] && computer.currentChoice ===choices[2]) {
     console.log("It's a draw!");
