@@ -13,9 +13,17 @@ const randomIndex = Math.floor(Math.random() * choices.length);
 rock = document.querySelector('#rock')
 paper = document.querySelector('#paper')
 scissors = document.querySelector('#scissors')
+
+//event listeners
+if (rock) {
+    rock.addEventListener("click", () => {
+        console.log('clicked rock')
+    } 
+)}
+
   
 computer.currentChoice = choices[randomIndex];
-player.currentChoice = choices[0];
+player.currentChoice = null;
   
 if (player.currentChoice === choices[0] && computer.currentChoice === choices[1]) {
     console.log("You lose! Paper beats Rock!");
@@ -44,3 +52,4 @@ else if (player.currentChoice === choices[2] && computer.currentChoice === choic
 else if (player.currentChoice === choices[2] && computer.currentChoice ===choices[2]) {
     console.log("It's a draw!");
 }
+
