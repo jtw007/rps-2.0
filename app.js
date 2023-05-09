@@ -1,48 +1,68 @@
+let playerScore = 0
+let computerScore = 0
+
 const choices = ["Rock", "Paper", "Scissors"]
 const randomIndex = Math.floor(Math.random() * 3);
 
-// ==computer and player functions== 
-// const player = () => {
-//     currentChoice: null
-// }
-
-const computer = () => {
+const computerChoice = () => {
     randomIndex
     const computerChoice = choices[randomIndex]
     return computerChoice
 }
-computer()
 
 const playRound = (player, computer) => {
-    if (player.currentChoice === choices[0] && computer.currentChoice === choices[1]) {
-        console.log("You lose! Paper beats Rock!");
+    if (player === choices[0] && computer === choices[1]) {
+        computerScore++
+        return "You lose! Paper beats Rock!"
     }
-    else if (player.currentChoice === choices[0] && computer.currentChoice === choices[2]) {
-        console.log('You win! Rock beats Scissors!');
+    else if (player === choices[0] && computer === choices[2]) {
+        playerScore++
+        return 'You win! Rock beats Scissors!'
     }      
-    else if (player.currentChoice === choices[0] && computer.currentChoice === choices[0]) {
-        console.log("It's a draw!");
+    else if (player === choices[0] && computer === choices[0]) {
+        return "It's a draw!"
     } 
-    else if (player.currentChoice === choices[1] && computer.currentChoice === choices[2]) {
-        console.log("You lose! Scissors beats Paper!");
+    else if (player === choices[1] && computer === choices[2]) {
+        computerScore++
+        return "You lose! Scissors beats Paper!"
     }  
-    else if (player.currentChoice === choices[1] && computer.currentChoice === choices[0]){
-        console.log('You win! Paper beats Rock!');
+    else if (player === choices[1] && computer === choices[0]){
+        playerScore++
+        return 'You win! Paper beats Rock!'
     }
-    else if (player.currentChoice === choices[1] && computer.currentChoice === choices[1]) {
-        console.log("It's a draw!");
+    else if (player === choices[1] && computer === choices[1]) {
+        return "It's a draw!"
     }
-    else if (player.currentChoice === choices[2] && computer.currentChoice === choices[0]) {
-        console.log("You lose! Rock beats Scissors!");
+    else if (player === choices[2] && computer === choices[0]) {
+        computerScore++
+        return "You lose! Rock beats Scissors!"
     }
-    else if (player.currentChoice === choices[2] && computer.currentChoice === choices[1]) {
-        console.log("You win! Scissors beats Paper!");
+    else if (player === choices[2] && computer === choices[1]) {
+        playerScore++
+        return "You win! Scissors beats Paper!"
     }
-    else if (player.currentChoice === choices[2] && computer.currentChoice ===choices[2]) {
-        console.log("It's a draw!");
+    else if (player === choices[2] && computer ===choices[2]) {
+        return "It's a draw!"
     }
 }
 
+const playerSelection = 'Rock'
+
+const game = () => {
+    for (let i = 0; i < 5; i++) {
+        const computerSelection = computerChoice()
+        console.log(playRound(playerSelection, computerSelection))
+    }
+    if (playerScore > computerScore) {
+        return 'You are victorious!'
+    } else if (playerScore < computerScore) {
+        return 'You lost to a computer lmao'
+    } else {
+        return 'You tied with the computer'
+    }
+}
+
+console.log(game())
 
 //==query selectors==
 rock = document.querySelector('#rock')
@@ -57,34 +77,34 @@ if (rock) {
 )}
 
   
-computer.currentChoice = choices[randomIndex];
-player.currentChoice = null;
+// computer.currentChoice = choices[randomIndex];
+// player.currentChoice = null;
   
-if (player.currentChoice === choices[0] && computer.currentChoice === choices[1]) {
-    console.log("You lose! Paper beats Rock!");
-}
-else if (player.currentChoice === choices[0] && computer.currentChoice === choices[2]) {
-    console.log('You win! Rock beats Scissors!');
-}      
-else if (player.currentChoice === choices[0] && computer.currentChoice === choices[0]) {
-    console.log("It's a draw!");
-} 
-else if (player.currentChoice === choices[1] && computer.currentChoice === choices[2]) {
-    console.log("You lose! Scissors beats Paper!");
-}  
-else if (player.currentChoice === choices[1] && computer.currentChoice === choices[0]){
-    console.log('You win! Paper beats Rock!');
-}
-else if (player.currentChoice === choices[1] && computer.currentChoice === choices[1]) {
-    console.log("It's a draw!");
-}
-else if (player.currentChoice === choices[2] && computer.currentChoice === choices[0]) {
-    console.log("You lose! Rock beats Scissors!");
-}
-else if (player.currentChoice === choices[2] && computer.currentChoice === choices[1]) {
-    console.log("You win! Scissors beats Paper!");
-}
-else if (player.currentChoice === choices[2] && computer.currentChoice ===choices[2]) {
-    console.log("It's a draw!");
-}
+// if (player.currentChoice === choices[0] && computer.currentChoice === choices[1]) {
+//     console.log("You lose! Paper beats Rock!");
+// }
+// else if (player.currentChoice === choices[0] && computer.currentChoice === choices[2]) {
+//     console.log('You win! Rock beats Scissors!');
+// }      
+// else if (player.currentChoice === choices[0] && computer.currentChoice === choices[0]) {
+//     console.log("It's a draw!");
+// } 
+// else if (player.currentChoice === choices[1] && computer.currentChoice === choices[2]) {
+//     console.log("You lose! Scissors beats Paper!");
+// }  
+// else if (player.currentChoice === choices[1] && computer.currentChoice === choices[0]){
+//     console.log('You win! Paper beats Rock!');
+// }
+// else if (player.currentChoice === choices[1] && computer.currentChoice === choices[1]) {
+//     console.log("It's a draw!");
+// }
+// else if (player.currentChoice === choices[2] && computer.currentChoice === choices[0]) {
+//     console.log("You lose! Rock beats Scissors!");
+// }
+// else if (player.currentChoice === choices[2] && computer.currentChoice === choices[1]) {
+//     console.log("You win! Scissors beats Paper!");
+// }
+// else if (player.currentChoice === choices[2] && computer.currentChoice ===choices[2]) {
+//     console.log("It's a draw!");
+// }
 
